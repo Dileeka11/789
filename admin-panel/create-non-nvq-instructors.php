@@ -111,7 +111,17 @@ include './auth.php';
                                         <div class="mb-3 row">
                                             <label class="col-md-2 col-form-label">Course Name (Non NVQ)</label>
                                             <div class="col-md-10">
-                                                <input class="form-control" type="text" id="course_name" name="course_name" placeholder="Enter course name">
+                                                <select class="form-control select2" name="course_name" id="course_name">
+                                                    <option value="">-- Select Course -- </option>
+                                                    <?php
+                                                    $NON_NVQ_COURSES = new Course(NULL);
+                                                    foreach ($NON_NVQ_COURSES->getNonNvqCourseList() as $course) {
+                                                    ?>
+                                                        <option value="<?= htmlspecialchars($course['courseid'] . ' - ' . $course['cname']) ?>"><?= $course['courseid'] . ' - ' . $course['cname'] ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -287,6 +297,15 @@ include './auth.php';
                 }]
             });
             $('.select2').select2();
+
+            // Open the calendar when clicking anywhere on a date input
+            $(document).on('click focus', 'input[type="date"]', function() {
+                if (typeof this.showPicker === 'function') {
+                    try {
+                        this.showPicker();
+                    } catch (e) {}
+                }
+            });
         });
     </script>
 

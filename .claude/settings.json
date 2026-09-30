@@ -34,7 +34,11 @@
       "Bash(/c/xampp/mysql/bin/mysql.exe -u root nyscexam_question_db -e 'DESCRIBE training_centre; SELECT '\\\\''---COURSE---'\\\\''; DESCRIBE course; SHOW TABLES LIKE '\\\\''%non_nvq%'\\\\''; SHOW TABLES LIKE '\\\\''%instructor%'\\\\'';')",
       "Bash(/c/xampp/mysql/bin/mysql.exe -u root nyscexam_question_db -e ' *)",
       "Bash(/c/xampp/php/php.exe /c/Users/ASUS/AppData/Local/Temp/claude/test_nonnvq.php)",
-      "Bash(rm -f /c/Users/ASUS/AppData/Local/Temp/claude/test_nonnvq.php)"
+      "Bash(rm -f /c/Users/ASUS/AppData/Local/Temp/claude/test_nonnvq.php)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root nyscexam_question_db -e 'SELECT nvqnon, COUNT\\(*\\) FROM course GROUP BY nvqnon;')",
+      "Bash(/c/xampp/php/php.exe -l /c/xampp/htdocs/789/class/Course.php)",
+      "Bash(/c/xampp/php/php.exe -l /c/xampp/htdocs/789/admin-panel/create-non-nvq-instructors.php)",
+      "Bash(/c/xampp/php/php.exe -r 'include '\\\\''C:/xampp/htdocs/789/class/include.php'\\\\''; $c=Course::getNonNvqCourseList\\(\\); echo '\\\\''Non NVQ course count: '\\\\''.count\\($c\\).PHP_EOL; if\\(count\\($c\\)\\) echo '\\\\''sample: '\\\\''.$c[0]['\\\\''courseid'\\\\''].'\\\\'' - '\\\\''.$c[0]['\\\\''cname'\\\\''].PHP_EOL;')"
     ],
     "additionalDirectories": [
       "C:\\Users\\ASUS\\Downloads"

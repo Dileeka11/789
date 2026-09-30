@@ -249,6 +249,20 @@ public function getLimited($offset, $limit) {
 
 
    
+  public static function getNonNvqCourseList() {
+
+        $query = "SELECT * FROM `course` WHERE `nvqnon` = 2 ORDER BY `cname` ASC";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+
+        while ($row = mysqli_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
   public static function getCourseByNonNvq() {
 
         $query = "SELECT * FROM `course` WHERE `level` =0 ";
