@@ -1,0 +1,76 @@
+.exam-index .card-title {
+    display: flex;
+}
+
+.qu_title p {
+    margin-bottom: 0;
+}
+
+/* quiz layout */
+/* quiz */
+.qu-count-box {
+    display: inline-block;
+}
+
+.qu-count-small-box {
+    display: inline-block;
+    margin-bottom: 25px;
+    width: auto;
+    padding: 0;
+}
+
+.qu-count-small-box span {
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    background: #eee;
+    font-weight: 600;
+    color: #000;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.qu-count-small-box.current span {
+    padding: 10px;
+    border: 1px solid #f00 !important;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+    background: #f00 !important;
+    font-weight: 600;
+    color: #fff;
+}
+
+.qu-count-small-box.answered span {
+    background: #0e4874;
+    border: 1px solid #0e4874;
+    color: #fff;
+}
+
+.result-section table {
+    width: 100%;
+}
+
+.result-section table th,
+.result-section table td {
+    padding: 10px;
+}
+
+.result-section table th {
+    width: 40%;
+    text-align: right;
+}
+
+.result-section {
+    border: 2px solid #ddd;
+    padding: 20px;
+}
+
+.profile-details-table tr {
+    height: 35px;
+}
+.profile-details-table {
+    font-size: 18px;
+}

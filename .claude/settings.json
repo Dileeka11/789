@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/ASUS/Downloads/**)",
+      "Bash(grep -n \"CREATE TABLE\" \"/c/Users/ASUS/Downloads/nyscexam_question_db.sql\" | tail -n +26)",
+      "Bash(head -n 185683 \"/c/Users/ASUS/Downloads/nyscexam_question_db.sql\" > \"/c/Users/ASUS/Downloads/nyscexam_no_exam_students.sql\" *)",
+      "Bash(./mysql.exe -u root -e \"SHOW DATABASES;\")",
+      "Bash(./mysql.exe -u root -e \"USE nyscexam_question_db; SHOW TABLES;\")",
+      "Bash(find /c/Users/ASUS/Downloads /c/Users/ASUS/Desktop /c/Users/ASUS/Documents -iname \"*.sql\" 2>/dev/null | head -30)",
+      "Bash(find /c/Users/ASUS/Downloads /c/Users/ASUS/Desktop /c/Users/ASUS/Documents -iname \"*.sql\" 2>/dev/null | grep -iE \"nysc|exam|question|789\")",
+      "Bash(grep -ioE \"CREATE TABLE [\\\\`\\\\\"]?\\(user|student|payment|users\\)[\\\\`\\\\\"]?\" \"/c/Users/ASUS/Downloads/nyscexam_question_db.sql\")",
+      "Bash(grep -oiE \"CREATE TABLE [\\\\`\\\\\"]?[a-z_0-9]+\" \"/c/Users/ASUS/Downloads/nyscexam_question_db.sql\")",
+      "Bash(echo \"=== nyscexam_question_db.sql tables ===\"; grep -oiE \"CREATE TABLE [\\\\`\\\\\"]?[a-z_0-9]+\" \"/c/Users/ASUS/Downloads/nyscexam_question_db.sql\" | sed -E 's/CREATE TABLE .//I' | tr -d '\\\\140\"' | sort; echo; echo \"=== nyscexam_no_exam_students.sql count & has user? ===\"; grep -oiE \"CREATE TABLE [\\\\`\\\\\"]?[a-z_0-9]+\" \"/c/Users/ASUS/Downloads/nyscexam_no_exam_students.sql\" | sed -E 's/CREATE TABLE .//I' | tr -d '\\\\140\"' | sort)",
+      "Bash(echo \"=== last 15 lines of nyscexam_question_db.sql ===\"; tail -15 \"/c/Users/ASUS/Downloads/nyscexam_question_db.sql\")",
+      "Bash(grep -rn \"FROM \\\\`user_type\\\\|FROM \\\\`usertype\\\\|FROM \\\\`user_types\\\\|class UserType\" /c/xampp/htdocs/789/class/)",
+      "Bash(cat)",
+      "Bash(./mysql.exe -u root)",
+      "Bash(./mysql.exe -u root -e \"USE nyscexam_question_db; SELECT id,name,email,username,type,isActive FROM user;\")",
+      "Bash(./mysql.exe -u root -e \"USE nyscexam_question_db; SELECT COUNT\\(*\\) AS exam_students_rows FROM exam_students;\")",
+      "Bash(./mysql.exe -u root -e \"USE nyscexam_question_db; SHOW TABLE STATUS LIKE 'exam_students';\")",
+      "Bash(grep -rhoiE \"FROM \\\\`?[a-z_0-9]+\\\\`?\" /c/xampp/htdocs/789/class/)",
+      "Bash(./mysql.exe -u root -N -e \"USE nyscexam_question_db; SHOW TABLES;\")",
+      "Bash(./mysql.exe -u root -e \"USE nyscexam_question_db; CREATE TABLE _probe\\(id INT\\); INSERT INTO _probe VALUES\\(1\\); SELECT * FROM _probe; DROP TABLE _probe;\")",
+      "Read(//c/Users/ASUS/AppData/Local/Temp/claude/c--xampp-htdocs-789/44139618-7b0d-4541-8482-4854dd931eb0/scratchpad/**)",
+      "Bash(./mysql.exe -u root -e \"USE nyscexam_question_db; SELECT id,email,username,type FROM user;\")",
+      "Bash(ls -1 /c/Users/ASUS/Downloads/ 2>/dev/null | grep -iE \"nysc|exam|question|backup\" | head -20)",
+      "Read(//c/Users/ASUS/Downloads//**)",
+      "Bash(grep -rhoiE \"FROM \\\\`[a-z_0-9]+\\\\`|JOIN \\\\`[a-z_0-9]+\\\\`|INTO \\\\`[a-z_0-9]+\\\\`|UPDATE \\\\`[a-z_0-9]+\\\\`\" /c/xampp/htdocs/789/class/)",
+      "Bash(grep -m1 -iE \"SELECT .*FROM \\\\`student\\\\`\" Student.php)",
+      "Bash(grep -m1 -iE \"SELECT .*FROM \\\\`user_type\\\\`\" UserType.php)",
+      "Bash(grep -ioP \"INSERT INTO \\\\`student\\\\`\\\\s*\\\\\\(\\\\K[^\\)]*\" Student.php)",
+      "Bash(export LC_ALL=C)",
+      "Bash(grep -ioE \"INSERT INTO \\\\`student\\\\` \\\\\\([^\\)]*\\\\\\)\" Student.php)",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root nyscexam_question_db -e 'DESCRIBE training_centre; SELECT '\\\\''---COURSE---'\\\\''; DESCRIBE course; SHOW TABLES LIKE '\\\\''%non_nvq%'\\\\''; SHOW TABLES LIKE '\\\\''%instructor%'\\\\'';')",
+      "Bash(/c/xampp/mysql/bin/mysql.exe -u root nyscexam_question_db -e ' *)",
+      "Bash(/c/xampp/php/php.exe /c/Users/ASUS/AppData/Local/Temp/claude/test_nonnvq.php)",
+      "Bash(rm -f /c/Users/ASUS/AppData/Local/Temp/claude/test_nonnvq.php)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\ASUS\\Downloads"
+    ]
+  }
+}

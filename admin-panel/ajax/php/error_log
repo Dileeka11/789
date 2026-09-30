@@ -1,0 +1,241 @@
+[09-Jul-2023 15:44:37 America/New_York] PHP Warning:  move_uploaded_file(../../uploads/members/passports/1688931877430_4972.jpg): failed to open stream: No such file or directory in /home/chalcepi/sites/sport/ajax/php/upload-file.php on line 19
+[09-Jul-2023 15:44:37 America/New_York] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpFfIXMQ' to '../../uploads/members/passports/1688931877430_4972.jpg' in /home/chalcepi/sites/sport/ajax/php/upload-file.php on line 19
+[11-Jul-2023 13:58:06 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 13:58:12 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 13:58:13 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 13:58:15 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 13:58:21 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 13:59:30 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 14:00:20 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 14:00:21 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 14:00:22 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[11-Jul-2023 14:01:03 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/sites/sport/class/Database.php on line 34
+[02-Aug-2023 02:09:48 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/public_html/class/Database.php on line 34
+[02-Aug-2023 02:09:54 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/public_html/class/Database.php on line 34
+[02-Aug-2023 02:10:05 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/public_html/class/Database.php on line 34
+[02-Aug-2023 02:10:22 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/public_html/class/Database.php on line 34
+[02-Aug-2023 02:10:42 America/New_York] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/chalcepi/public_html/class/Database.php on line 34
+[07-Aug-2023 02:43:02 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function User::create(), 7 passed in /home/chalcepi/public_html/admin-panel/ajax/php/user.php on line 10 and exactly 8 expected in /home/chalcepi/public_html/class/User.php:53
+Stack trace:
+#0 /home/chalcepi/public_html/admin-panel/ajax/php/user.php(10): User->create('dehiwala center', '3', '11', 'chalanadulaj99@...', '0770470536', 'gamage', '123456')
+#1 {main}
+  thrown in /home/chalcepi/public_html/class/User.php on line 53
+[07-Aug-2023 02:43:35 America/New_York] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function User::create(), 7 passed in /home/chalcepi/public_html/admin-panel/ajax/php/user.php on line 10 and exactly 8 expected in /home/chalcepi/public_html/class/User.php:53
+Stack trace:
+#0 /home/chalcepi/public_html/admin-panel/ajax/php/user.php(10): User->create('dehiwala', '3', '11', 'chalanadulaj99@...', '4747', 'cha', '123456')
+#1 {main}
+  thrown in /home/chalcepi/public_html/class/User.php on line 53
+[15-Aug-2023 04:23:34 America/New_York] PHP Warning:  move_uploaded_file(../../../upload/paper/1692087814713_7529. රැස්විම් වාර්තාව 2023.04.28.pdf): failed to open stream: No such file or directory in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:23:34 America/New_York] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpjfapHb' to '../../../upload/paper/1692087814713_7529. රැස්විම් වාර්තාව 2023.04.28.pdf' in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:23:56 America/New_York] PHP Warning:  move_uploaded_file(../../../upload/paper/1692087836510_6276. රැස්විම් වාර්තාව 2023.04.28.pdf): failed to open stream: No such file or directory in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:23:56 America/New_York] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpzcbZN6' to '../../../upload/paper/1692087836510_6276. රැස්විම් වාර්තාව 2023.04.28.pdf' in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:26:50 America/New_York] PHP Warning:  move_uploaded_file(../../../upload/paper/1692088010065_7105. පත්‍රය.pdf): failed to open stream: No such file or directory in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:26:50 America/New_York] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpFwD4wb' to '../../../upload/paper/1692088010065_7105. පත්‍රය.pdf' in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:27:18 America/New_York] PHP Warning:  move_uploaded_file(../../../upload/paper/1692088038255_2140. පත්‍රය.pdf): failed to open stream: No such file or directory in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 04:27:18 America/New_York] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpbShkon' to '../../../upload/paper/1692088038255_2140. පත්‍රය.pdf' in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Aug-2023 06:14:06 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[15-Aug-2023 06:14:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[15-Aug-2023 06:14:28 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:24:59 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:25:06 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:25:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:25:27 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:26:02 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:26:05 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:26:09 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:38:30 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:38:49 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:44:55 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 05:47:15 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 06:02:35 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 13:25:23 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 13:27:10 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 13:27:41 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 13:37:04 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[16-Aug-2023 13:39:13 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Helper' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 20
+[18-Aug-2023 01:10:01 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[18-Aug-2023 02:57:48 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[18-Aug-2023 05:48:54 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 00:01:51 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 00:03:48 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 01:26:33 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 01:32:38 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 01:53:50 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 01:53:50 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[21-Aug-2023 02:23:47 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 05:31:10 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 05:56:36 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 05:57:42 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 06:03:28 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 06:03:29 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 06:05:44 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[22-Aug-2023 06:27:07 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[24-Aug-2023 01:43:32 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:175
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 175
+[04-Sep-2023 02:37:35 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[04-Sep-2023 04:36:07 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[06-Sep-2023 01:14:19 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[06-Sep-2023 09:46:42 America/New_York] PHP Notice:  Undefined index: mcq_mark in /home/chalcepi/public_html/admin-panel/ajax/php/student-mark-update.php on line 12
+[06-Sep-2023 09:46:42 America/New_York] PHP Notice:  Undefined index: writing_paper_mark in /home/chalcepi/public_html/admin-panel/ajax/php/student-mark-update.php on line 13
+[06-Sep-2023 23:55:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[08-Sep-2023 02:48:20 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[12-Sep-2023 02:18:14 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[12-Sep-2023 02:20:02 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[13-Sep-2023 13:08:07 America/New_York] PHP Fatal error:  Uncaught Error: Class 'Upload' not found in /home/chalcepi/public_html/admin-panel/ajax/php/question.php:349
+Stack trace:
+#0 {main}
+  thrown in /home/chalcepi/public_html/admin-panel/ajax/php/question.php on line 349
+[15-Sep-2023 10:42:35 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:42:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:42:35 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:42:35 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:42:45 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:42:45 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:42:45 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:42:45 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:42:56 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:42:56 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:42:56 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:42:56 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:43:18 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:43:18 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:43:18 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:43:18 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:46:10 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:46:10 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 19
+[15-Sep-2023 10:46:10 America/New_York] PHP Notice:  Undefined index: pdf_doc in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
+[15-Sep-2023 10:46:10 America/New_York] PHP Notice:  Trying to access array offset on value of type null in /home/chalcepi/public_html/admin-panel/ajax/php/writting-exam.php on line 23
