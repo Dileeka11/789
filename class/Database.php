@@ -14,8 +14,19 @@ class Database {
     private $password = '';
     public $DB_CON = NULL;
 
+    // Shared connection reused by every `new Database()` within a single
+    // request. This prevents opening hundreds of MySQL connections per page
+    // (the main cause of "Too many connections" under high load).
+    private static $sharedConnection = NULL;
+
     public function __construct() {
-        // Establish database connection
+        // Reuse the already-open connection if one exists for this request.
+        if (self::$sharedConnection !== NULL) {
+            $this->DB_CON = self::$sharedConnection;
+            return;
+        }
+
+        // Establish database connection (only happens once per request).
         $this->DB_CON = mysqli_connect($this->host, $this->user, $this->password, $this->name);
 
         // Check for connection errors
@@ -27,6 +38,9 @@ class Database {
         if (!mysqli_set_charset($this->DB_CON, "utf8mb4")) {
             throw new Exception('Error loading character set utf8mb4: ' . mysqli_error($this->DB_CON));
         }
+
+        // Remember it so subsequent `new Database()` calls reuse it.
+        self::$sharedConnection = $this->DB_CON;
     }
 
     // Function to execute read queries (SELECT)
@@ -51,10 +65,11 @@ class Database {
         return $result;
     }
 
-    // Close the database connection
+    // Close the database connection.
+    // NOTE: With the shared connection, we must NOT close it here, otherwise
+    // every later `new Database()` in the same request would fail. The
+    // connection is released automatically when the request ends.
     public function closeConnection() {
-        if ($this->DB_CON) {
-            mysqli_close($this->DB_CON);
-        }
+        return TRUE;
     }
 }
