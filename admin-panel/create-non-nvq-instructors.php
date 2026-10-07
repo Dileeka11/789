@@ -140,21 +140,21 @@ include './auth.php';
                                         </div>
 
                                         <div class="mb-3 row">
-                                            <label class="col-md-2 col-form-label">Service Details / Category</label>
+                                            <label class="col-md-2 col-form-label">WhatsApp Number</label>
                                             <div class="col-md-10">
-                                                <input class="form-control" type="text" id="service_details" name="service_details" placeholder="Enter service details / category">
+                                                <input class="form-control" type="tel" id="whatsapp_number" name="whatsapp_number" placeholder="Enter WhatsApp number">
                                             </div>
                                         </div>
 
                                         <div class="mb-3 row">
-                                            <label class="col-md-2 col-form-label">Start Date</label>
+                                            <label class="col-md-2 col-form-label">Job Placement Date</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="date" id="start_date" name="start_date">
                                             </div>
                                         </div>
 
                                         <div class="mb-3 row">
-                                            <label class="col-md-2 col-form-label">End Date</label>
+                                            <label class="col-md-2 col-form-label">Job End Date</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="date" id="end_date" name="end_date">
                                             </div>
@@ -198,9 +198,9 @@ include './auth.php';
                                                 <th>Course (Non NVQ)</th>
                                                 <th>Instructor Name</th>
                                                 <th>Instructor Tel. No</th>
-                                                <th>Service Details</th>
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
+                                                <th>WhatsApp Number</th>
+                                                <th>Job Placement Date</th>
+                                                <th>Job End Date</th>
                                                 <th>Active / Inactive</th>
                                                 <th>Options</th>
                                             </tr>

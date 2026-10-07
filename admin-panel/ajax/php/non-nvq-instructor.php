@@ -11,7 +11,7 @@ if (isset($_POST['create'])) {
     $NON_NVQ->course_name = $_POST['course_name'];
     $NON_NVQ->instructor_name = $_POST['instructor_name'];
     $NON_NVQ->instructor_tel = $_POST['instructor_tel'];
-    $NON_NVQ->service_details = $_POST['service_details'];
+    $NON_NVQ->service_details = $_POST['whatsapp_number'];
     $NON_NVQ->start_date = $_POST['start_date'];
     $NON_NVQ->end_date = $_POST['end_date'];
     $NON_NVQ->status = isset($_POST['status']) ? $_POST['status'] : 1;
