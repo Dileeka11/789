@@ -1,6 +1,7 @@
 $(document).ready(function () {
-  let remainingTime = $("#remaining-time").val();
-  $("#countdown").timeTo(parseInt(remainingTime), function () {
+  let remainingTime = parseInt($("#remaining-time").val());
+  if (isNaN(remainingTime) || remainingTime <= 0) {
+    // Exam time already over: submit immediately instead of running the timer.
     submitQuiz();
     swal({
       title: "Alert",
@@ -9,7 +10,18 @@ $(document).ready(function () {
       showConfirmButton: false,
       timer: 1000,
     });
-  });
+  } else {
+    $("#countdown").timeTo(remainingTime, function () {
+      submitQuiz();
+      swal({
+        title: "Alert",
+        text: "Time Over!",
+        showCancelButton: false,
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    });
+  }
   $("#submit").click(function () {
     submitQuiz();
     // swal({

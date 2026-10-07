@@ -12,13 +12,14 @@ if (!$exam_attempt || ($exam_attempt && $exam_attempt['status'] != 1)) {
 }
 $currentTime = new DateTime();
 $startTime = new DateTime($EXAM->time);
-$exam_end_time = $startTime->modify('+' . $EXAM->duration . ' seconds');
-$timeDifference = $startTime->diff($currentTime);
+$exam_end_time = (clone $startTime)->modify('+' . $EXAM->duration . ' seconds');
 
-$hours = $timeDifference->h;
-$minutes = $timeDifference->i;
-$seconds = $timeDifference->s;
-$timeDifferenceInSeconds = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+// Signed remaining time in seconds. Using timestamps avoids DateTime::diff()
+// returning an absolute (always positive) value when the exam is already over.
+$timeDifferenceInSeconds = $exam_end_time->getTimestamp() - $currentTime->getTimestamp();
+if ($timeDifferenceInSeconds < 0) {
+    $timeDifferenceInSeconds = 0;
+}
 
 $first_qu = ExamStudentQuestion::getFirstQuestion($_SESSION['id'], $exam_id);
 $table_data = ExamStudentQuestion::getStudentQuestions($_SESSION['id'], $exam_id);

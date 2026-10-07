@@ -217,6 +217,20 @@ class SheduleExam {
         return $array_res;
     }
 
+    // Get all exams scheduled on a given date (Y-m-d). Used by the live exam
+    // monitoring report to find exams that may be running right now.
+    public function getExamsByDate($date) {
+        $query = "SELECT * FROM `schedule_exam` WHERE `start_date` = '" . $date . "' ORDER BY `time` ASC";
+
+        $db = new Database();
+        $result = $db->readQuery($query);
+        $array_res = array();
+        while ($row = mysqli_fetch_array($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
     public function delete() {
         $query = 'DELETE FROM `schedule_exam` WHERE id="' . $this->id . '"';
         

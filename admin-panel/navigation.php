@@ -222,8 +222,9 @@ $US = new User($_SESSION['id']);
                             <li><a href="manage-schedule-exam-by-year.php?id=non-nvq"> Non Nvq </a></li>
                             <li><a href="manage-schedule-exam-by-year.php?id=short_time"> Short Time </a></li> 
                              <li><a href="manage-schedule-exam-by-year.php?id=language"> Languages Exam </a></li> 
-                              <li><a href="manage-schedule-exam-by-year.php?id=agriculture"> Agriculture Exam </a></li> 
-                           
+                              <li><a href="manage-schedule-exam-by-year.php?id=agriculture"> Agriculture Exam </a></li>
+                            <li><a href="center-live-exam-report.php"> Live Exam Report </a></li>
+
                         </ul>
                     </li>
                     

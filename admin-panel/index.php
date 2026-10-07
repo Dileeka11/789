@@ -115,7 +115,7 @@ if ($_SESSION['type'] == 14) {
                                     <h4 class="mb-0">Dashboard   </h4>
 
                                     <div class="page-title-right  ">
-                                         <b> STUDENT LIVE COUNT - <span id="student_live_count" style="color:red;"> <?php echo $student_live_count ?> </span></b>
+                                         <b> STUDENT LIVE COUNT - <span id="student_live_count" style="color:red;">0</span></b>
 
                                              
                                              

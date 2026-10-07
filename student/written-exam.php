@@ -12,13 +12,14 @@ if (!$exam_attempt || ($exam_attempt && $exam_attempt['status'] != 3)) {
 }
 $currentTime = new DateTime();
 $startTime = new DateTime($EXAM->time);
-$exam_end_time = $startTime->modify('+' . $EXAM->duration . ' seconds');
-$timeDifference = $startTime->diff($currentTime);
+$exam_end_time = (clone $startTime)->modify('+' . $EXAM->duration . ' seconds');
 
-$hours = $timeDifference->h;
-$minutes = $timeDifference->i;
-$seconds = $timeDifference->s;
-$timeDifferenceInSeconds = ($hours * 60 * 60) + ($minutes * 60) + $seconds;
+// Signed remaining time in seconds. Using timestamps avoids DateTime::diff()
+// returning an absolute (always positive) value when the exam is already over.
+$timeDifferenceInSeconds = $exam_end_time->getTimestamp() - $currentTime->getTimestamp();
+if ($timeDifferenceInSeconds < 0) {
+    $timeDifferenceInSeconds = 0;
+}
 
 $qu_paper = WrittingPapers::getPaperByCourse($EXAM->course_id);
 if ($lang == 'sinhala') {

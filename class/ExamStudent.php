@@ -1089,6 +1089,49 @@ public function getFaillStudentCountByCourseType($year, $batch, $type)
     
 
     
+    // Per-center live statistics for a single exam.
+    // Returns one row per center that has students in this exam's cohort
+    // (course + year + batch, active students), with:
+    //   expected_count  -> how many students SHOULD sit the exam
+    //   attended_count  -> how many have actually started/attended, based on
+    //                      the exam_students.status column (1 = MCQ started,
+    //                      2 = MCQ done, 3 = essay started, 4 = essay done).
+    // Students with status 0 (assigned but not yet started) are NOT counted
+    // as attended.
+    public function getLiveExamCenterStats($exam_id, $course_id, $year, $batch)
+    {
+        $db = new Database();
+
+        $exam_id   = intval($exam_id);
+        $year      = intval($year);
+        $batch     = intval($batch);
+        $course_id = mysqli_real_escape_string($db->DB_CON, $course_id);
+
+        $query = "
+            SELECT
+                tc.centercode,
+                tc.center_name,
+                COUNT(DISTINCT s.id) AS expected_count,
+                COUNT(DISTINCT CASE WHEN es.status IN (1, 2, 3, 4) THEN es.student_id END) AS attended_count
+            FROM student s
+            INNER JOIN training_centre tc ON tc.centercode = s.centercode
+            LEFT JOIN exam_students es ON es.student_id = s.id AND es.exam_id = $exam_id
+            WHERE s.course_id = '$course_id'
+              AND s.year = '$year'
+              AND s.batch = $batch
+              AND s.isActive = 0
+            GROUP BY tc.centercode, tc.center_name
+            HAVING expected_count > 0 OR attended_count > 0
+            ORDER BY tc.center_name ASC";
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
     public function getFaillStudentCount($year, $batch, $course_id,$center)
     {
      
