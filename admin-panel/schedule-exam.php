@@ -151,14 +151,15 @@ $exam_type = $_GET['exam_type'];
             <td><?php echo $key . ' - ' . $shedule_exam['id'].'-'. $pendingCount  ?></td>
             <td><?php echo $COURSE->courseid . ' - ' . $COURSE->cname ?></td>
             <?php
+            $questionTypeLabel = '';
             foreach ($QUESTION_TYPE->all() as $question) {
                 if ($question['id'] == $shedule_exam['type']) {
-            ?>
-                    <td><?php echo $question['type'] ?></td>
-            <?php
+                    $questionTypeLabel = $question['type'];
+                    break;
                 }
             }
             ?>
+            <td><?php echo $questionTypeLabel ?></td>
             <td><?= $shedule_exam['is_had_practical'] == 1 ? 'Yes' : 'No' ?></td>
             <td><?= date("m/d/Y", strtotime($shedule_exam['start_date'])) ?></td>
             <td><?= $shedule_exam['time'] ?></td>
