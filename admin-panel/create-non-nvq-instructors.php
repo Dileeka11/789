@@ -1,6 +1,11 @@
 <?php
 include '../class/include.php';
 include './auth.php';
+
+// Center logins only see/manage their own center's instructors; admins see all
+$LOGGED_USER = new User($_SESSION['id']);
+$IS_CENTER_LOGIN = $_SESSION['type'] != 1 && !empty($LOGGED_USER->center_id);
+$EMPLOYMENT_TYPES = ['Permanent', 'Contract', 'Allowances'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -95,13 +100,22 @@ include './auth.php';
                                             <label class="col-md-2 col-form-label">Training Center</label>
                                             <div class="col-md-10">
                                                 <select class="form-control select2" name="centercode" id="centercode">
-                                                    <option value="">-- Select Center -- </option>
                                                     <?php
-                                                    $CENTER = new Centers(NULL);
-                                                    foreach ($CENTER->all() as $center) {
+                                                    if ($IS_CENTER_LOGIN) {
+                                                        $CENTER = new Centers($LOGGED_USER->center_id);
                                                     ?>
-                                                        <option value="<?= $center['centercode'] ?>"><?= $center['centercode'] . ' - ' . $center['center_name'] ?></option>
+                                                        <option value="<?= $CENTER->centercode ?>" selected><?= $CENTER->centercode . ' - ' . $CENTER->center_name ?></option>
                                                     <?php
+                                                    } else {
+                                                    ?>
+                                                        <option value="">-- Select Center -- </option>
+                                                        <?php
+                                                        $CENTER = new Centers(NULL);
+                                                        foreach ($CENTER->all() as $center) {
+                                                        ?>
+                                                            <option value="<?= $center['centercode'] ?>"><?= $center['centercode'] . ' - ' . $center['center_name'] ?></option>
+                                                    <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </select>
@@ -129,6 +143,18 @@ include './auth.php';
                                             <label class="col-md-2 col-form-label">Instructor Name</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="text" id="instructor_name" name="instructor_name" placeholder="Enter instructor name">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3 row">
+                                            <label class="col-md-2 col-form-label">Employment Type</label>
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="employment_type" id="employment_type">
+                                                    <option value="">-- Select Employment Type -- </option>
+                                                    <?php foreach ($EMPLOYMENT_TYPES as $type) { ?>
+                                                        <option value="<?= $type ?>"><?= $type ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
                                         </div>
 
@@ -197,6 +223,7 @@ include './auth.php';
                                                 <th>Centre</th>
                                                 <th>Course (Non NVQ)</th>
                                                 <th>Instructor Name</th>
+                                                <th>Employment Type</th>
                                                 <th>Instructor Tel. No</th>
                                                 <th>WhatsApp Number</th>
                                                 <th>Job Placement Date</th>
@@ -209,13 +236,15 @@ include './auth.php';
                                         <tbody>
                                             <?php
                                             $NON_NVQ = new NonNvqInstructor(NULL);
-                                            foreach ($NON_NVQ->all() as $row) {
+                                            $rows = $IS_CENTER_LOGIN ? $NON_NVQ->getByCenter($LOGGED_USER->center_id) : $NON_NVQ->all();
+                                            foreach ($rows as $row) {
                                                 $CENTER = new Centers($row['centercode']);
                                             ?>
                                                 <tr id="row-<?= $row['id'] ?>">
                                                     <td><?= $row['centercode'] . ' - ' . $CENTER->center_name ?></td>
                                                     <td><?= htmlspecialchars($row['course_name']) ?></td>
                                                     <td><?= htmlspecialchars($row['instructor_name']) ?></td>
+                                                    <td><?= htmlspecialchars($row['employment_type']) ?></td>
                                                     <td><?= htmlspecialchars($row['instructor_tel']) ?></td>
                                                     <td><?= htmlspecialchars($row['service_details']) ?></td>
                                                     <td><?= $row['start_date'] ?></td>

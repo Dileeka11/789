@@ -41,6 +41,17 @@ $("document").ready(function () {
         timer: 2000,
         showConfirmButton: false,
       });
+    } else if (
+      !$("#employment_type").val() ||
+      $("#employment_type").val().length === 0
+    ) {
+      swal({
+        title: "Error!",
+        text: "Please Select Employment Type..!",
+        type: "error",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     } else {
       //start preloader
       $(".someBlock").preloader();

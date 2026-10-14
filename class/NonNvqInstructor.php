@@ -12,6 +12,7 @@ class NonNvqInstructor {
     public $centercode;
     public $course_name;
     public $instructor_name;
+    public $employment_type;
     public $instructor_tel;
     public $service_details;
     public $start_date;
@@ -30,6 +31,7 @@ class NonNvqInstructor {
             $this->centercode = $result['centercode'];
             $this->course_name = $result['course_name'];
             $this->instructor_name = $result['instructor_name'];
+            $this->employment_type = $result['employment_type'];
             $this->instructor_tel = $result['instructor_tel'];
             $this->service_details = $result['service_details'];
             $this->start_date = $result['start_date'];
@@ -46,6 +48,7 @@ class NonNvqInstructor {
         $centercode = mysqli_real_escape_string($con, $this->centercode);
         $course_name = mysqli_real_escape_string($con, $this->course_name);
         $instructor_name = mysqli_real_escape_string($con, $this->instructor_name);
+        $employment_type = mysqli_real_escape_string($con, $this->employment_type);
         $instructor_tel = mysqli_real_escape_string($con, $this->instructor_tel);
         $service_details = mysqli_real_escape_string($con, $this->service_details);
         $start_date = mysqli_real_escape_string($con, $this->start_date);
@@ -53,8 +56,8 @@ class NonNvqInstructor {
         $status = (int) $this->status;
 
         $query = "INSERT INTO `non_nvq_course_instructor` "
-                . "(`centercode`,`course_name`,`instructor_name`,`instructor_tel`,`service_details`,`start_date`,`end_date`,`status`) "
-                . "VALUES ('" . $centercode . "','" . $course_name . "','" . $instructor_name . "','"
+                . "(`centercode`,`course_name`,`instructor_name`,`employment_type`,`instructor_tel`,`service_details`,`start_date`,`end_date`,`status`) "
+                . "VALUES ('" . $centercode . "','" . $course_name . "','" . $instructor_name . "','" . $employment_type . "','"
                 . $instructor_tel . "','" . $service_details . "',"
                 . ($start_date === '' ? "NULL" : "'" . $start_date . "'") . ","
                 . ($end_date === '' ? "NULL" : "'" . $end_date . "'") . ","
@@ -70,6 +73,7 @@ class NonNvqInstructor {
         $centercode = mysqli_real_escape_string($con, $this->centercode);
         $course_name = mysqli_real_escape_string($con, $this->course_name);
         $instructor_name = mysqli_real_escape_string($con, $this->instructor_name);
+        $employment_type = mysqli_real_escape_string($con, $this->employment_type);
         $instructor_tel = mysqli_real_escape_string($con, $this->instructor_tel);
         $service_details = mysqli_real_escape_string($con, $this->service_details);
         $start_date = mysqli_real_escape_string($con, $this->start_date);
@@ -81,6 +85,7 @@ class NonNvqInstructor {
                 . "`centercode`='" . $centercode . "', "
                 . "`course_name`='" . $course_name . "', "
                 . "`instructor_name`='" . $instructor_name . "', "
+                . "`employment_type`='" . $employment_type . "', "
                 . "`instructor_tel`='" . $instructor_tel . "', "
                 . "`service_details`='" . $service_details . "', "
                 . "`start_date`=" . ($start_date === '' ? "NULL" : "'" . $start_date . "'") . ", "
