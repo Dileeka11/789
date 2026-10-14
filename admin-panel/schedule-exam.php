@@ -13,7 +13,10 @@ $exam_type = '';
 $exam_type = $_GET['exam_type'];
 
 
+
+
 ?>
+ 
 <!doctype html>
 
 <html lang="en">
@@ -138,6 +141,7 @@ $exam_type = $_GET['exam_type'];
         $exam_end_time = $currentTime->modify('+' . $shedule_exam['duration'] . ' seconds');
         $exam_end_time = $exam_end_time->format('H:i');
 
+ 
         // Add row color classes
         $rowClass = '';
         if (($shedule_exam['start_date'] < date("Y-m-d") || ($shedule_exam['start_date'] == date("Y-m-d") && date("H:i") >= $exam_end_time)) && $shedule_exam['is_result_released'] == 0) {

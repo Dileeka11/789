@@ -77,32 +77,32 @@ include '../class/include.php';
                                 </div>
                             </div>
                         </div>
-                        <!--<div class="row">-->
-                        <!--    <div class="col-12">-->
-                        <!--        <div class="card">-->
-                        <!--            <div class="card-body">-->
-                                        <!--<form id="form-data">-->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form id="form-data">
                                                       
-                                        <!--         <div class="row mt-3">-->
-                                        <!--            <label class="form-label mt-1 col-md-3" for="username" style="font-size: 18px;">Enter Your Mis Number.</label>-->
-                                        <!--            <div class="col-md-3">-->
-                                        <!--                <input type="text" class="form-control" id="student_id" placeholder="Please Enter Your NIC or Mis Number." name="student_id" style="margin-bottom:20px;">-->
-                                        <!--            </div>-->
-                                        <!--             <div class="col-md-3" hidden>-->
-                                        <!--                <input type="text" class="form-control" id="certificate" placeholder="Please Enter certificate Number." name="certificate" style="margin-bottom:20px;">-->
-                                        <!--            </div>-->
-                                        <!--            <div class="col-md-3 " style="display: flex;">-->
-                                        <!--                <button class="btn btn-primary w-sm waves-effect waves-light me-1" type="button" id="show-results" style="height: 40px;">Show Results</button>-->
-                                        <!--                <button class="btn btn-warning w-sm waves-effect waves-light" type="button" id="reset" style="height: 40px;">Reset</button>-->
-                                        <!--            </div>-->
-                                        <!--        </div>-->
+                                                 <div class="row mt-3">
+                                                    <label class="form-label mt-1 col-md-3" for="username" style="font-size: 18px;">Enter Your Mis Number.</label>
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control" id="student_id" placeholder="Please Enter Your NIC or Mis Number." name="student_id" style="margin-bottom:20px;">
+                                                    </div>
+                                                     <div class="col-md-3" hidden>
+                                                        <input type="text" class="form-control" id="certificate" placeholder="Please Enter certificate Number." name="certificate" style="margin-bottom:20px;">
+                                                    </div>
+                                                    <div class="col-md-3 " style="display: flex;">
+                                                        <button class="btn btn-primary w-sm waves-effect waves-light me-1" type="button" id="show-results" style="height: 40px;">Show Results</button>
+                                                        <button class="btn btn-warning w-sm waves-effect waves-light" type="button" id="reset" style="height: 40px;">Reset</button>
+                                                    </div>
+                                                </div>
                                                  
-                                        <!--</form>-->
+                                        </form>
 
-                        <!--            </div>-->
-                        <!--        </div>-->
-                        <!--    </div> <!-- end col -->-->
-                        <!--</div>-->
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
                         <div class="row"> 
                             <div class="col-12">
                                

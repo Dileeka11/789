@@ -160,15 +160,15 @@ include './auth.php';
                                             </div>
                                         </div>
 
-                                        <div class="mb-3 row">
-                                            <label class="col-md-2 col-form-label">Status</label>
-                                            <div class="col-md-10">
-                                                <select class="form-control" name="status" id="status">
-                                                    <option value="1">Active</option>
-                                                    <option value="0">Inactive</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                        <!--<div class="mb-3 row">-->
+                                        <!--    <label class="col-md-2 col-form-label">Status</label>-->
+                                        <!--    <div class="col-md-10">-->
+                                        <!--        <select class="form-control" name="status" id="status">-->
+                                        <!--            <option value="1">Active</option>-->
+                                        <!--            <option value="0">Inactive</option>-->
+                                        <!--        </select>-->
+                                        <!--    </div>-->
+                                        <!--</div>-->
 
                                         <div class="row">
                                             <div class="col-12" style="display: flex; justify-content: flex-end;margin-top: 15px;">

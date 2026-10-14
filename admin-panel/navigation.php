@@ -140,12 +140,9 @@ $US = new User($_SESSION['id']);
                             <span>Instructors </span>
                         </a>
                     </li>
-                    <li>
-                        <a href="create-non-nvq-instructors.php">
-                            <i class='bx bx-user-pin'></i>
-                            <span>Non NVQ Instructor Details </span>
-                        </a>
-                    </li>
+                    
+                    
+               
 <?php
                 }
                  if ($_SESSION['type'] == 4) {
@@ -515,6 +512,14 @@ $US = new User($_SESSION['id']);
                         <a href="center-theory-papers-downloard.php">
                             <i class='bx bx-group'></i>
                             <span> Theory Paper Downloard   </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="create-non-nvq-instructors.php">
+                            <i class='bx bx-user-pin'></i>
+                            <span>Non NVQ Instructor Details </span>
                         </a>
                     </li>
                     

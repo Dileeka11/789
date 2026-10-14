@@ -221,7 +221,7 @@ class CourseRequest
 
 
 
-   public static function getCourseIdByYearAndBatchWithCenters($years = null, $batch = null, $center = null )
+   public static function getCourseIdByYearAndBatchWithCenters($years = null, $batch = null, $center )
     {
         if ($years != '' && $batch != '') {
             $this_year = date("Y");

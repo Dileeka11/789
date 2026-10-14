@@ -1186,7 +1186,7 @@ public function getFilteredStudentsCheckExam($course = '', $center = '', $year =
     }
 
 
-public function getStudentCountByCenterYearAndBatchFilter($year = null, $batch = null, $center_id = null)
+public function getStudentCountByCenterYearAndBatchFilter($year = null, $batch = null, $center_id)
 {
     
   $query = "SELECT count(`id`) as 'stu_count'  
