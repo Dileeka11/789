@@ -1132,6 +1132,49 @@ public function getFaillStudentCountByCourseType($year, $batch, $type)
         return $array_res;
     }
 
+    /**
+     * Province / center wise certificate summary for passed students.
+     * pass_count    = students passed (Distinction / Merit / Ordinary)
+     * printed_count = passed students who already have a certificate no (printed)
+     * Year / batch are the exam's year / batch; pass empty to include all.
+     */
+    public function getCenterCertificatePrintSummary($year = '', $batch = '')
+    {
+        $db = new Database();
+
+        $where = "es.grade IN ('Distinction', 'Merit', 'Ordinary')";
+        if ($year !== '' && $year !== null) {
+            $where .= " AND se.year = '" . intval($year) . "'";
+        }
+        if ($batch !== '' && $batch !== null) {
+            $where .= " AND se.batch = " . intval($batch);
+        }
+
+        $query = "
+            SELECT
+                tc.province AS province_id,
+                COALESCE(p.name, 'Unknown Province') AS province_name,
+                tc.centercode,
+                tc.center_name,
+                COUNT(DISTINCT s.id) AS pass_count,
+                COUNT(DISTINCT CASE WHEN s.certificate_no IS NOT NULL AND s.certificate_no != '' THEN s.id END) AS printed_count
+            FROM exam_students es
+            INNER JOIN schedule_exam se ON se.id = es.exam_id
+            INNER JOIN student s ON s.id = es.student_id
+            INNER JOIN training_centre tc ON tc.centercode = s.centercode
+            LEFT JOIN provinces p ON p.id = tc.province
+            WHERE $where
+            GROUP BY tc.province, p.name, tc.centercode, tc.center_name
+            ORDER BY province_name ASC, tc.center_name ASC";
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
     public function getFaillStudentCount($year, $batch, $course_id,$center)
     {
      
