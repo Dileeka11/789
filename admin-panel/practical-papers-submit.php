@@ -170,8 +170,13 @@ $COURSE = new Course($id);
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Manage Practical Papers</h4>
+                                    <h4 class="card-title mb-4">Manage Practical Papers</h4>
 
+                                    <?php
+                                    $ALL_PAPERS = (new PracticalPapers(NULL))->all();
+                                    include './paper-year-batch-filter.php';
+                                    if ($selected_year !== '') {
+                                    ?>
                                     <table class="table table-centered datatable dt-responsive nowrap table-card-list"
                                         style="border-collapse: collapse; border-spacing: 0 12px; width: 100%;">
                                         <thead>
@@ -189,8 +194,7 @@ $COURSE = new Course($id);
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $WRITTING_PAPERS = new PracticalPapers(NULL);
-                                            foreach ($WRITTING_PAPERS->all($id) as $key => $question) {
+                                            foreach ($FILTERED_PAPERS as $key => $question) {
                                                 $key++;
                                                 $isActive = isset($question['active']) ? $question['active'] : 1;
                                             ?>
@@ -199,7 +203,7 @@ $COURSE = new Course($id);
                                                     <td><?php echo htmlspecialchars($question['title']) ?></td>
                                                     <td><?php echo htmlspecialchars($question['course_id']) ?></td>
                                                     <td><?php echo htmlspecialchars($question['year']) ?></td>
-                                                    <td><?php echo htmlspecialchars($question['batch']) ?></td>
+                                                    <td><?php echo htmlspecialchars($BATCH_NAMES[$question['batch']] ?? $question['batch']) ?></td>
                                                     <td><?php echo htmlspecialchars($question['datetime_fp']) ?></td>
                                                     <td>
                                                         <a href="../nc_assets/uploads/practical-papers/<?php echo $question['pdf_doc'] ?>"
@@ -233,6 +237,7 @@ $COURSE = new Course($id);
                                             <?php } ?>
                                         </tbody>
                                     </table>
+                                    <?php } ?>
 
                                 </div>
                             </div>
