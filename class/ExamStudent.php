@@ -1175,6 +1175,54 @@ public function getFaillStudentCountByCourseType($year, $batch, $type)
         return $array_res;
     }
 
+    /**
+     * Students whose final grade is 'Repeat' even though every component they sat is a pass
+     * (caused by marks loading / balancing errors).
+     * Pass rules match the mark entry logic:
+     *   MCQ (type 1) / Theory (type 2) >= 35, MCQ + Theory (type 3) >= 35, Practical >= 50.
+     * Year / batch are the exam's year / batch.
+     */
+    public function getRepeatStudentsWithPassedMarks($year, $batch)
+    {
+        $db = new Database();
+
+        $query = "
+            SELECT
+                es.id,
+                es.student_id,
+                s.fname,
+                s.lname,
+                s.centercode,
+                se.type,
+                se.is_had_practical,
+                es.practical_marks,
+                es.essay_marks,
+                es.mcq_marks,
+                es.full_marks,
+                es.grade
+            FROM exam_students es
+            INNER JOIN schedule_exam se ON se.id = es.exam_id
+            INNER JOIN student s ON s.id = es.student_id
+            WHERE se.year = '" . intval($year) . "'
+              AND se.batch = " . intval($batch) . "
+              AND es.grade = 'Repeat'
+              AND (
+                    (se.type = 1 AND es.mcq_marks >= 35)
+                 OR (se.type = 2 AND es.essay_marks >= 35)
+                 OR (se.type = 3 AND es.mcq_marks IS NOT NULL AND es.essay_marks IS NOT NULL
+                     AND (es.mcq_marks + es.essay_marks) >= 35)
+              )
+              AND (se.is_had_practical != 1 OR es.practical_marks >= 50)
+            ORDER BY s.centercode ASC, es.student_id ASC";
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
     public function getFaillStudentCount($year, $batch, $course_id,$center)
     {
      
