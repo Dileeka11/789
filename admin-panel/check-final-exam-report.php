@@ -149,6 +149,7 @@ function check_final_mark($value, $applicable)
                                                     <th>Student ID</th>
                                                     <th>Student Name</th>
                                                     <th>Center</th>
+                                                    <th>Course</th>
                                                     <th class="text-center">Practical Marks</th>
                                                     <th class="text-center">Theory Marks</th>
                                                     <th class="text-center">MCQ Marks</th>
@@ -159,11 +160,11 @@ function check_final_mark($value, $applicable)
                                             <tbody>
                                                 <?php if ($year === '' || $batch === ''): ?>
                                                     <tr>
-                                                        <td colspan="9" class="text-center text-muted">Select a year and batch to load the report.</td>
+                                                        <td colspan="10" class="text-center text-muted">Select a year and batch to load the report.</td>
                                                     </tr>
                                                 <?php elseif (count($rows) == 0): ?>
                                                     <tr>
-                                                        <td colspan="9" class="text-center text-muted">No mismatched students found for the selected period.</td>
+                                                        <td colspan="10" class="text-center text-muted">No mismatched students found for the selected period.</td>
                                                     </tr>
                                                 <?php endif; ?>
 
@@ -178,6 +179,7 @@ function check_final_mark($value, $applicable)
                                                         <td><?php echo htmlspecialchars($row['student_id']); ?></td>
                                                         <td><?php echo htmlspecialchars($row['fname'] . ' ' . $row['lname']); ?></td>
                                                         <td><?php echo htmlspecialchars($row['centercode']); ?></td>
+                                                        <td><?php echo htmlspecialchars($row['course_name'] !== null ? $row['course_name'] : $row['course_id']); ?></td>
                                                         <td class="text-center"><?php echo check_final_mark($row['practical_marks'], $has_practical); ?></td>
                                                         <td class="text-center"><?php echo check_final_mark($row['essay_marks'], $has_theory); ?></td>
                                                         <td class="text-center"><?php echo check_final_mark($row['mcq_marks'], $has_mcq); ?></td>

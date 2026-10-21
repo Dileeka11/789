@@ -250,7 +250,15 @@ $grand['available'] = max(0, $grand['pass'] - $grand['printed']);
                                                             <td><?php echo $row['centercode'] . ' - ' . htmlspecialchars($row['center_name']); ?></td>
                                                             <td class="text-center text-primary fw-bold"><?php echo $pass; ?></td>
                                                             <td class="text-center text-success"><?php echo $printed; ?></td>
-                                                            <td class="text-center <?php echo $available > 0 ? 'text-danger fw-bold' : 'text-muted'; ?>"><?php echo $available; ?></td>
+                                                            <td class="text-center <?php echo $available > 0 ? 'text-danger fw-bold' : 'text-muted'; ?>">
+                                                                <?php if ($available > 0): ?>
+                                                                    <a href="javascript:void(0);" class="text-danger view-unprinted" data-center="<?php echo htmlspecialchars($row['centercode']); ?>" data-center-name="<?php echo htmlspecialchars($row['centercode'] . ' - ' . $row['center_name']); ?>" title="View students">
+                                                                        <?php echo $available; ?> <i class="bx bx-show no-print"></i>
+                                                                    </a>
+                                                                <?php else: ?>
+                                                                    <?php echo $available; ?>
+                                                                <?php endif; ?>
+                                                            </td>
                                                             <td class="text-center">
                                                                 <?php echo $percent; ?>%
                                                                 <div class="progress progress-sm mt-1">
@@ -296,6 +304,31 @@ $grand['available'] = max(0, $grand['pass'] - $grand['printed']);
     </div>
     <!-- END layout-wrapper -->
 
+    <!-- Unprinted students modal -->
+    <div class="modal fade" id="unprintedModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Certificates Not Printed - <span id="unprintedCenter"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered table-centered mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 60px;">No</th>
+                                <th>Student ID</th>
+                                <th>Student Name</th>
+                                <th>Course Name</th>
+                            </tr>
+                        </thead>
+                        <tbody id="unprintedBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
@@ -307,6 +340,45 @@ $grand['available'] = max(0, $grand['pass'] - $grand['printed']);
     <script src="assets/libs/node-waves/waves.min.js"></script>
     <!-- App js -->
     <script src="assets/js/app.js"></script>
+
+    <script>
+        $(document).on('click', '.view-unprinted', function () {
+            var $body = $('#unprintedBody');
+            $('#unprintedCenter').text($(this).data('center-name'));
+            $body.html('<tr><td colspan="4" class="text-center text-muted">Loading...</td></tr>');
+            $('#unprintedModal').modal('show');
+
+            $.ajax({
+                url: 'ajax/php/exam-students.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    action: 'GETUNPRINTEDCERTIFICATES',
+                    centercode: $(this).data('center'),
+                    year: <?php echo json_encode($year); ?>,
+                    batch: <?php echo json_encode($batch); ?>
+                },
+                success: function (res) {
+                    $body.empty();
+                    if (!res.data || res.data.length === 0) {
+                        $body.html('<tr><td colspan="4" class="text-center text-muted">No students found.</td></tr>');
+                        return;
+                    }
+                    $.each(res.data, function (i, s) {
+                        $('<tr>')
+                            .append($('<td>').text(i + 1))
+                            .append($('<td>').text(s.student_id))
+                            .append($('<td>').text(s.fname + ' ' + s.lname))
+                            .append($('<td>').text(s.course_name !== null ? s.course_name : s.course_id))
+                            .appendTo($body);
+                    });
+                },
+                error: function () {
+                    $body.html('<tr><td colspan="4" class="text-center text-danger">Failed to load students.</td></tr>');
+                }
+            });
+        });
+    </script>
 
 </body>
 

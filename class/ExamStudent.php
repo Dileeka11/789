@@ -1175,6 +1175,43 @@ public function getFaillStudentCountByCourseType($year, $batch, $type)
         return $array_res;
     }
 
+    // Passed students of a center whose certificate is not printed yet
+    public function getCenterUnprintedCertificateStudents($centercode, $year = '', $batch = '')
+    {
+        $db = new Database();
+
+        $where = "es.grade IN ('Distinction', 'Merit', 'Ordinary')
+              AND s.centercode = '" . intval($centercode) . "'
+              AND (s.certificate_no IS NULL OR s.certificate_no = '')";
+        if ($year !== '' && $year !== null) {
+            $where .= " AND se.year = '" . intval($year) . "'";
+        }
+        if ($batch !== '' && $batch !== null) {
+            $where .= " AND se.batch = " . intval($batch);
+        }
+
+        $query = "
+            SELECT DISTINCT
+                s.id AS student_id,
+                s.fname,
+                s.lname,
+                se.course_id,
+                c.cname AS course_name
+            FROM exam_students es
+            INNER JOIN schedule_exam se ON se.id = es.exam_id
+            INNER JOIN student s ON s.id = es.student_id
+            LEFT JOIN course c ON c.courseid = se.course_id
+            WHERE $where
+            ORDER BY s.id ASC";
+
+        $result = $db->readQuery($query);
+        $array_res = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            array_push($array_res, $row);
+        }
+        return $array_res;
+    }
+
     /**
      * Students whose final grade is 'Repeat' even though every component they sat is a pass
      * (caused by marks loading / balancing errors).
@@ -1193,6 +1230,8 @@ public function getFaillStudentCountByCourseType($year, $batch, $type)
                 s.fname,
                 s.lname,
                 s.centercode,
+                se.course_id,
+                c.cname AS course_name,
                 se.type,
                 se.is_had_practical,
                 es.practical_marks,
@@ -1203,6 +1242,7 @@ public function getFaillStudentCountByCourseType($year, $batch, $type)
             FROM exam_students es
             INNER JOIN schedule_exam se ON se.id = es.exam_id
             INNER JOIN student s ON s.id = es.student_id
+            LEFT JOIN course c ON c.courseid = se.course_id
             WHERE se.year = '" . intval($year) . "'
               AND se.batch = " . intval($batch) . "
               AND es.grade = 'Repeat'

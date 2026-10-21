@@ -372,7 +372,17 @@ if (isset($_POST['update'])) {
     exit();
 }
 
-//  update note student 
+// unprinted certificate students of a center
+if (isset($_POST['action']) && $_POST['action'] === 'GETUNPRINTEDCERTIFICATES') {
+
+    $EXAM_STUDENT = new ExamStudent(NULL);
+    $students = $EXAM_STUDENT->getCenterUnprintedCertificateStudents($_POST['centercode'], $_POST['year'], $_POST['batch']);
+
+    echo json_encode(["status" => "success", "data" => $students]);
+    exit();
+}
+
+//  update note student
 if (isset($_POST['action']) && $_POST['action'] === 'update-note') {
    
     $id = $_POST['exam_id'];
