@@ -24,9 +24,9 @@ $application_count = count($APPLICATIONS->all());
  
 /////
 $application_count_this_year = $APPLICATIONS->getApplicationsByCenterThisYear();
-$student_count_this_year = count($STUDENT->getStudentThisYear());
- $student_count_nvq_this_year = count($STUDENT->getStudentByStudentNvqThisYear());
- $student_count_non_nvq_this_year = count($STUDENT->getStudentByStudentNonNvqThisYear());
+$student_count_this_year = $STUDENT->countStudentThisYear();
+ $student_count_nvq_this_year = $STUDENT->countStudentByNvqThisYear(1);
+ $student_count_non_nvq_this_year = $STUDENT->countStudentByNvqThisYear(2);
  
 
 $USER = new User($_SESSION['id']);
@@ -34,9 +34,9 @@ $USER = new User($_SESSION['id']);
 if(!empty($USER->center_id)){
     //get application in center vise
 $all_center_application_count_this_year = $APPLICATIONS->getallApplicationsByCenter($USER->center_id);
-$all_center_student_count_this_year = count($STUDENT->getAllStudentscenters($USER->center_id));
-$all_center_student_count_nvq_this_year = count($STUDENT->getAllStudentByStudentNvqThisYear($USER->center_id));
-$all_center_student_count_non_nvq_this_year = count($STUDENT->getAllStudentByStudentNonNvqThisYear($USER->center_id));
+$all_center_student_count_this_year = $STUDENT->countStudentThisYear($USER->center_id);
+$all_center_student_count_nvq_this_year = $STUDENT->countStudentByNvqThisYear(1, $USER->center_id);
+$all_center_student_count_non_nvq_this_year = $STUDENT->countStudentByNvqThisYear(2, $USER->center_id);
 
 }
 

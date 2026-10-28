@@ -321,6 +321,37 @@ public function all($limit = 100, $offset = 0)
         return $array_res;
     }
 
+    public static function countStudentThisYear($center = null)
+    {
+        $year = date("Y");
+        $where = "student.year = $year";
+        if ($center !== null) {
+            $where .= " AND student.centercode = " . (int) $center . " AND student.batch = 1 AND student.isActive = 0";
+        }
+
+        $query = "SELECT COUNT(*) AS total FROM `student` WHERE $where";
+
+        $db = new Database();
+        $row = mysqli_fetch_assoc($db->readQuery($query));
+        return (int) $row['total'];
+    }
+
+    // $nvqnon: 1 = NVQ, 2 = Non NVQ
+    public static function countStudentByNvqThisYear($nvqnon, $center = null)
+    {
+        $year = date("Y");
+        $where = "student.year = $year AND course.nvqnon = " . (int) $nvqnon;
+        if ($center !== null) {
+            $where .= " AND student.isActive = 0 AND student.centercode = " . (int) $center;
+        }
+
+        $query = "SELECT COUNT(*) AS total FROM `student` INNER JOIN course ON course.courseid = student.course_id WHERE $where";
+
+        $db = new Database();
+        $row = mysqli_fetch_assoc($db->readQuery($query));
+        return (int) $row['total'];
+    }
+
     public static function getStudentByStudentNvqThisYear()
     {
 
