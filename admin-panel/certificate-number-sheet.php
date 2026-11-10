@@ -30,11 +30,17 @@ $html .= '</table>';
 $html .= '<table style="width:100%; border:1px solid #000; border-collapse:collapse; margin-top:10px;">';
 $html .= '<thead>
 <tr>';
-$html .= '<th style="border:1px solid #000;">No</th>';
-$html .= '<th style="border:1px solid #000;">Exam No (MIS No)</th>';
-$html .= '<th style="border:1px solid #000;">Name with Initials</th>';
-$html .= '<th style="border:1px solid #000;">Final Grade</th>';
-$html .= '<th style="border:1px solid #000;">Certificate Number</th>';
+$html .= '<th rowspan="2" style="border:1px solid #000;width:4%;">No</th>';
+$html .= '<th rowspan="2" style="border:1px solid #000;width:11%;">Exam No (MIS No)</th>';
+$html .= '<th rowspan="2" style="border:1px solid #000;width:20%;">Name with Initials</th>';
+$html .= '<th rowspan="2" style="border:1px solid #000;width:8%;">Certificate Number</th>';
+$html .= '<th colspan="4" style="border:1px solid #000;">Received By</th>';
+$html .= '<th rowspan="2" style="border:1px solid #000;width:9%;">Received Date</th>';
+$html .= '</tr><tr>';
+$html .= '<th style="border:1px solid #000;width:18%;">Name</th>';
+$html .= '<th style="border:1px solid #000;width:10%;">NIC No</th>';
+$html .= '<th style="border:1px solid #000;width:9%;">TP No</th>';
+$html .= '<th style="border:1px solid #000;width:11%;">Signature</th>';
 $html .= '</tr>
 </thead><tbody>';
 
@@ -43,54 +49,20 @@ foreach ($students as $index => $student) {
     $rowStyle = ($STUDENT->year != $year) ? 'background-color:#f8d7da; color:#721c24;' : '';
 
     $html .= '<tr style="' . $rowStyle . '">';
-    $html .= '<td style="border:1px solid #000;text-align:center;">' . ($index + 1) . '</td>';
+    $html .= '<td style="border:1px solid #000;text-align:center;height:28px;">' . ($index + 1) . '</td>';
     $html .= '<td style="border:1px solid #000;text-align:center;">' . $STUDENT->id . ' (' . $STUDENT->year . '-' . $STUDENT->batch . ')</td>';
     $html .= '<td style="border:1px solid #000;">' . $STUDENT->fname . ' ' . $STUDENT->lname . '</td>';
-    $html .= '<td style="border:1px solid #000;text-align:center;">' . ($student['grade'] ?? '-') . '</td>';
     $html .= '<td style="border:1px solid #000;text-align:center;">' . ($student['certificate_no'] ?? '-') . '</td>';
+    $html .= '<td style="border:1px solid #000;"></td>';
+    $html .= '<td style="border:1px solid #000;"></td>';
+    $html .= '<td style="border:1px solid #000;"></td>';
+    $html .= '<td style="border:1px solid #000;"></td>';
+    $html .= '<td style="border:1px solid #000;"></td>';
     $html .= '</tr>';
 }
 
 $html .= '</tbody></table>';
 $html .= '<p><strong>Total Passed Students:</strong> ' . count($students) . '</p>';
-
-$html .= '<p style="margin-top:20px; font-weight:600;"><u><b>Issued To:</b></u></p>';
-
-$html .= '<table style="width:100%; border-collapse: collapse; font-size:11px; margin-top:10px;">';
-
-// Signature
-$html .= '<tr>';
-$html .= '<td style="padding: 5px; width:20%;"><strong>Signature:</strong></td>';
-$html .= '<td style="padding: 5px; width:40%;"><input type="text" style="border: none; border-bottom: 1px dotted #000; width: 40%; max-width: 5ch;"></td>';
-$html .= '</tr>';
-
-// Name
-$html .= '<tr>';
-$html .= '<td style="padding: 5px;"><strong>Name:</strong></td>';
-$html .= '<td style="padding: 5px; width:80%;"><input type="text" style="border: none; border-bottom: 1px dotted #000; width: 40%; max-width: 5ch;"></td>';
-$html .= '</tr>';
-
-// Designation
-$html .= '<tr>';
-$html .= '<td style="padding: 5px;"><strong>Designation:</strong></td>';
-$html .= '<td style="padding: 5px; width:80%;"><input type="text" style="border: none; border-bottom: 1px dotted #000; width: 40%; max-width: 5ch;"></td>';
-$html .= '</tr>';
-
-// Mobile Number
-$html .= '<tr>';
-$html .= '<td style="padding: 5px;"><strong>Mobile Number:</strong></td>';
-$html .= '<td style="padding: 5px; width:80%;"><input type="text" style="border: none; border-bottom: 1px dotted #000; width: 40%; max-width: 5ch;"></td>';
-$html .= '</tr>';
-
-// Date
-$html .= '<tr>';
-$html .= '<td style="padding: 5px;"><strong>Date:</strong></td>';
-$html .= '<td style="padding: 5px; width:80%;"><input type="text" style="border: none; border-bottom: 1px dotted #000; width: 40%; max-width: 5ch;"></td>';
-$html .= '</tr>';
-
-$html .= '</table>';
-
-
 
 //add sample table
 $html .= '<p style="margin-top:30px; font-weight:600;"><u><b>Re Issued Certificated:</b></u></p>';
@@ -123,7 +95,7 @@ $html .= '</tbody></table>';
 // Generate PDF
 $dompdf = new Dompdf();
 $dompdf->loadHtml($html);
-$dompdf->setPaper('A4', 'portrait');
+$dompdf->setPaper('A4', 'landscape');
 $dompdf->render();
 
 $filename = "Certificate_Report_" . date("Ymd_His") . ".pdf";
