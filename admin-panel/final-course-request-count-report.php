@@ -165,6 +165,7 @@ if (isset($_GET['batch'])) {
                                                 <th>District </th>
                                                 <th>Training Center </th>
                                                 <th>Course Name</th>
+                                                <th>Amount (Rs.)</th>
                                                 <th>Full / Part / Short </th>
                                                 <th>NVQ Level </th>
                                                 <th>Durarion (Month)</th>
@@ -213,6 +214,7 @@ if (isset($_GET['batch'])) {
                                                     <td><?= $DISTRICT->name ?></td>
                                                     <td><?= $CENTERS->center_name ?></td>
                                                     <td><?= $COURSE->courseid  .' - '.$COURSE->cname ?></td>
+                                                    <td><?= isset($request['course_fee']) && $request['course_fee'] !== '' ? number_format((float) $request['course_fee'], 2) : '-' ?></td>
                                                     <td><?= $type ?></td>
                                                     <td><?= $COURSE->level; ?></td>
                                                     <td><?= $COURSE->durationm; ?> months</td>

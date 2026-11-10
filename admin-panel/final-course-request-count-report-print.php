@@ -48,6 +48,7 @@ $html .= '<th style="width:5%; padding:3px;border:1px solid #000; font-weight:60
 $html .= '<th style="width:10%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;">District</th>';
 $html .= '<th style="width:20%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;">Training Center</th>';
 $html .= '<th style="width:10%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;">Course Name</th>';
+$html .= '<th style="width:8%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;">Amount (Rs.)</th>';
 $html .= '<th style="width:10%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;">Full / Part / Short</th>';
 $html .= '<th style="width:10%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;"> NVQ Level</th>';
 $html .= '<th style="width:10%; padding:3px;border:1px solid #000; font-weight:600; text-align:center; vertical-align:middle;">Durarion (Month)</th>';
@@ -94,6 +95,7 @@ foreach ($COURSE_REQUEST->getCourseIdByYearAndBatch($year, $batch) as $key => $r
     $html .= '<td style="width:20%;padding:3px;border:1px solid #000;text-align:center; vertical-align:middle;">' . $DISTRICT->name . '</td>';
     $html .= '<td style="width:20%;padding:3px;border:1px solid #000;text-align:center; vertical-align:middle;">' . $CENTERS->center_name . '</td>';
     $html .= '<td style="width:15%;padding:3px;border:1px solid #000;text-align:center; vertical-align:middle;">' . $COURSE->cname . '</td>';
+    $html .= '<td style="width:8%;padding:3px;border:1px solid #000;text-align:right; vertical-align:middle;">' . (isset($request['course_fee']) && $request['course_fee'] !== '' ? number_format((float) $request['course_fee'], 2) : '-') . '</td>';
     $html .= '<td style="width:8%;padding:3px;border:1px solid #000;text-align:center; vertical-align:middle;">' . $type . '</td>';
     $html .= '<td style="width:8%;padding:3px;border:1px solid #000;text-align:center; vertical-align:middle;">' . $COURSE->level . '</td>';
     $html .= '<td style="width:8%;padding:3px;border:1px solid #000;text-align:center; vertical-align:middle;">' . $COURSE->durationm . '</td>';
